@@ -15,7 +15,7 @@ Successful Signup
     Type Email    ${new_random_email}
     Type Password    password
     Click Signup Button
-    Verify Redirection After Signup
+    Verify Successful Signup and Redirection
 
 
 # Cenário 2
@@ -41,6 +41,7 @@ ${new_random_email}=    null
 *** Keywords ***
 Enter Signup Page
     Open Browser    url=${BASE_URL}   browser=${BROWSER}
+    Wait Until Page Contains Element    css=a[href="/password/login"]    
     Click Link    css=a[href="/password/login"] 
     Wait Until Page Contains Element    css=a[href="/password/signup"]    
     Click Link    css=a[href="/password/signup"]
@@ -57,7 +58,7 @@ Click Signup Button
     Click Button    css=button[type="submit"]
 
 
-Verify Redirection After Signup
+Verify Successful Signup and Redirection
     Wait Until Page Contains    Welcome!
     Wait Until Page Contains    Signup successful!
     Page Should Contain Element    css=a[href="/password/login"]
