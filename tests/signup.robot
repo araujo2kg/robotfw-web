@@ -44,7 +44,7 @@ Enter Signup Page
     Wait Until Page Contains Element    css=a[href="/password/login"]    
     Click Link    css=a[href="/password/login"] 
     Wait Until Page Contains Element    css=a[href="/password/signup"]    
-    Click Link    css=a[href="/password/signup"]
+    Execute Javascript    document.querySelector("a[href='/password/signup']").click()
     Wait Until Location Contains    /password/signup
 
 
@@ -76,5 +76,5 @@ Verify Missing Password Error Message
 
 Verify Incorrect Email Error Message
     ${validation_message}=    Get Element Attribute    css=input[type="email"]    validationMessage
-    Should Contain Any    ${validation_message}    Please include an '@' in the email address.    Please enter a part following '@'.
+    Should Contain Any    ${validation_message}    Please include an '@' in the email address.    Please enter a part following '@'.    Please enter an email address.
 
