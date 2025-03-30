@@ -9,7 +9,6 @@ Test Teardown    Close Browser
 *** Test Cases ***
 # Cenário 1
 Successful Signup
-    Skip
     Enter Signup Page
     Generate New Valid Email
     Type Email    ${new_random_email}
@@ -77,4 +76,3 @@ Verify Missing Password Error Message
 Verify Incorrect Email Error Message
     ${validation_message}=    Get Element Attribute    css=input[type="email"]    validationMessage
     Should Contain Any    ${validation_message}    Please include an '@' in the email address.    Please enter a part following '@'.    Please enter an email address.
-
